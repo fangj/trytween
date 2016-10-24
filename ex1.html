@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script> -->
+	<script src="tweenjs.min.js"></script>
+</head>
+<body>
+<pre id="show"></pre>
+	<script>
+	var myTarget={x:0}
+		var tween = createjs.Tween.get(myTarget,{"onChange":onChange})
+	    .to({x:300},400)
+	    .call(onComplete);
+
+
+const show=document.getElementById("show");
+function onChange(argument) {
+	console.log('onChange',myTarget)
+	show.innerText=JSON.stringify(myTarget,null,2)
+}
+
+function onComplete(argument) {
+	console.log("onComplete",myTarget)
+	show.innerText=JSON.stringify(myTarget,null,2)
+}
+	</script>
+</body>
+</html>
